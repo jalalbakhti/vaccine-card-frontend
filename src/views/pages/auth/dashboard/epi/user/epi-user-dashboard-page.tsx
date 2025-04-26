@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { BarChart2, PersonStanding, Plane } from "lucide-react"; // Added Plane icon
+import { Plane, Syringe, Shield, Thermometer, User, UserCircle } from "lucide-react";
 import DashboardCard from "@/components/custom-ui/card/DashboardCard";
 import PieChartOne from "@/components/custom-ui/charts/pie/PieChartOne";
 import BarChartFive from "@/components/custom-ui/charts/bar/BarChartFive";
@@ -14,7 +14,7 @@ export default function EpiUserDashboardPage() {
     <div className="bg-gray-50 min-h-screen">
       {/* Cards Section */}
       <div className="container mx-auto px-4 sm:px-6 py-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <DashboardCard
             loading={false}
             key={"country"}
@@ -23,11 +23,9 @@ export default function EpiUserDashboardPage() {
             className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
             value={100}
             symbol="+"
-            icon={
-              <BarChart2 className="text-blue-600 sm:size-[54px] min-w-[32px] min-h-[32px]" />
-            }
+            icon={<Syringe className="text-blue-600 sm:w-14 sm:h-14 min-w-[32px] min-h-[32px]" />}
           />
-          
+
           <DashboardCard
             loading={false}
             key={"district"}
@@ -36,11 +34,9 @@ export default function EpiUserDashboardPage() {
             className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
             value={20000}
             symbol="+"
-            icon={
-              <BarChart2 className="text-pink-600 sm:size-[54px] min-w-[32px] min-h-[32px]" />
-            }
+            icon={<UserCircle className="text-pink-600 sm:w-14 sm:h-14 min-w-[32px] min-h-[32px]" />}
           />
-          
+
           <DashboardCard
             loading={false}
             key={"area"}
@@ -49,11 +45,9 @@ export default function EpiUserDashboardPage() {
             className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
             value={566000}
             symbol="+"
-            icon={
-              <BarChart2 className="text-blue-800 sm:size-[54px] min-w-[32px] min-h-[32px]" />
-            }
+            icon={<User className="text-blue-800 sm:w-14 sm:h-14 min-w-[32px] min-h-[32px]" />}
           />
-          
+
           <DashboardCard
             loading={false}
             key={"job"}
@@ -62,61 +56,51 @@ export default function EpiUserDashboardPage() {
             className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
             value={600}
             symbol="+"
-            icon={
-              <PersonStanding className="text-green-600 sm:size-[54px] min-w-[32px] min-h-[32px]" />
-            }
+            icon={<Shield className="text-green-600 sm:w-14 sm:h-14 min-w-[32px] min-h-[32px]" />}
           />
-          
+
           <DashboardCard
             loading={false}
-            key={"job"}
+            key={"meningitis"}
             title={t("Meningitis")}
             description={t("job")}
             className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
             value={600}
             symbol="+"
-            icon={
-              <PersonStanding className="text-purple-600 sm:size-[54px] min-w-[32px] min-h-[32px]" />
-            }
+            icon={<Shield className="text-purple-600 sm:w-14 sm:h-14 min-w-[32px] min-h-[32px]" />}
           />
-          
+
           <DashboardCard
             loading={false}
-            key={"job"}
+            key={"polio"}
             title={t("Oral Polio Vaccine")}
             description={t("job")}
             className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
             value={600}
             symbol="+"
-            icon={
-              <PersonStanding className="text-yellow-600 sm:size-[54px] min-w-[32px] min-h-[32px]" />
-            }
+            icon={<Shield className="text-yellow-600 sm:w-14 sm:h-14 min-w-[32px] min-h-[32px]" />}
           />
-          
+
           <DashboardCard
             loading={false}
-            key={"job"}
+            key={"flu"}
             title={t("Seasonal Flu")}
             description={t("job")}
             className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
             value={600}
             symbol="+"
-            icon={
-              <PersonStanding className="text-red-600 sm:size-[54px] min-w-[32px] min-h-[32px]" />
-            }
+            icon={<Thermometer className="text-red-600 sm:w-14 sm:h-14 min-w-[32px] min-h-[32px]" />}
           />
-          
+
           <DashboardCard
             loading={false}
-            key={"job"}
+            key={"travel"}
             title={t("Travel Type")}
             description={t("Hajj Farzi:  Hajj Omra:  Others: ")}
             className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
             value={600}
             symbol=" Total"
-            icon={
-              <Plane className="text-indigo-600 sm:size-[54px] min-w-[32px] min-h-[32px]" />
-            }
+            icon={<Plane className="text-indigo-600 sm:w-14 sm:h-14 min-w-[32px] min-h-[32px]" />}
           />
         </div>
       </div>
@@ -126,38 +110,38 @@ export default function EpiUserDashboardPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">Overall Vaccination Distribution</h3>
-            <div className="h-80">
+            <div className="h-64"> {/* Reduced height here */}
               <PieChartOne />
             </div>
           </div>
-          
+
           <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">Male and Female Distribution</h3>
-            <div className="h-80">
+            <div className="h-64"> {/* Reduced height here */}
               <BarChartFive />
             </div>
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">Populations Based on Vaccination Types Distribution</h3>
-            <div className="h-80">
+            <div className="h-64"> {/* Reduced height here */}
               <BarChartOne />
             </div>
           </div>
-          
+
           <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">Gender/Vaccination Type Distribution</h3>
-            <div className="h-80">
+            <div className="h-64"> {/* Reduced height here */}
               <PieChartTen />
             </div>
           </div>
         </div>
-        
+
         <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Destination Distribution</h3>
-          <div className="h-96">
+          <h3 className="text-lg font-semibold text-gray-800 mb-4 mt-10">Destination Distribution</h3>
+          <div className="h-80"> {/* Reduced height here */}
             <AreaChartNine />
           </div>
         </div>
