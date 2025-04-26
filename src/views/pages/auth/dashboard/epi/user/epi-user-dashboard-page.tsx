@@ -1,75 +1,167 @@
 import { useTranslation } from "react-i18next";
-import { BarChart2, PersonStanding } from "lucide-react";
+import { BarChart2, PersonStanding, Plane } from "lucide-react"; // Added Plane icon
 import DashboardCard from "@/components/custom-ui/card/DashboardCard";
+import PieChartOne from "@/components/custom-ui/charts/pie/PieChartOne";
+import BarChartFive from "@/components/custom-ui/charts/bar/BarChartFive";
+import BarChartOne from "@/components/custom-ui/charts/bar/BarChartOne";
+import PieChartTen from "@/components/custom-ui/charts/pie/PieChartTen";
+import AreaChartNine from "@/components/custom-ui/charts/area/AreaChartNine";
 
 export default function EpiUserDashboardPage() {
   const { t } = useTranslation();
 
   return (
-    <>
-      {/* Cards */}
-      <div className="px-1 sm:px-2 pt-4 grid grid-cols-2 md:grid-cols-4">
-        {/* {loading ? (
-          <>
-            {cardLoader}
-            {cardLoader}
-            {cardLoader}
-            {cardLoader}
-            {cardLoader}
-          </>
-        ) : ( */}
-        <>
+    <div className="bg-gray-50 min-h-screen">
+      {/* Cards Section */}
+      <div className="container mx-auto px-4 sm:px-6 py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           <DashboardCard
             loading={false}
             key={"country"}
-            title={t("country")}
+            title={t("Total Vaccinations")}
             description={t("january")}
-            className="overflow-hidden flex-1 space-y-2 h-full p-4"
+            className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
             value={100}
             symbol="+"
             icon={
-              <BarChart2 className="sm:size-[54px] min-w-[32px] min-h-[32px]" />
+              <BarChart2 className="text-blue-600 sm:size-[54px] min-w-[32px] min-h-[32px]" />
             }
           />
+          
           <DashboardCard
             loading={false}
             key={"district"}
-            title={t("district")}
+            title={t("Female")}
             description={t("january")}
-            className="overflow-hidden flex-1 space-y-2 h-full p-4"
+            className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
             value={20000}
             symbol="+"
             icon={
-              <BarChart2 className="sm:size-[54px] min-w-[32px] min-h-[32px]" />
+              <BarChart2 className="text-pink-600 sm:size-[54px] min-w-[32px] min-h-[32px]" />
             }
           />
+          
           <DashboardCard
             loading={false}
             key={"area"}
-            title={t("area")}
+            title={t("Male")}
             description={t("area")}
-            className="overflow-hidden flex-1 space-y-2 h-full p-4"
+            className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
             value={566000}
             symbol="+"
             icon={
-              <BarChart2 className="sm:size-[54px] min-w-[32px] min-h-[32px]" />
+              <BarChart2 className="text-blue-800 sm:size-[54px] min-w-[32px] min-h-[32px]" />
             }
           />
+          
           <DashboardCard
             loading={false}
             key={"job"}
-            title={t("job")}
+            title={t("Covid-19")}
             description={t("job")}
-            className="overflow-hidden flex-1 space-y-2 h-full p-4"
+            className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
             value={600}
             symbol="+"
             icon={
-              <PersonStanding className="sm:size-[54px] min-w-[32px] min-h-[32px]" />
+              <PersonStanding className="text-green-600 sm:size-[54px] min-w-[32px] min-h-[32px]" />
             }
           />
-        </>
-        {/* )} */}
+          
+          <DashboardCard
+            loading={false}
+            key={"job"}
+            title={t("Meningitis")}
+            description={t("job")}
+            className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+            value={600}
+            symbol="+"
+            icon={
+              <PersonStanding className="text-purple-600 sm:size-[54px] min-w-[32px] min-h-[32px]" />
+            }
+          />
+          
+          <DashboardCard
+            loading={false}
+            key={"job"}
+            title={t("Oral Polio Vaccine")}
+            description={t("job")}
+            className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+            value={600}
+            symbol="+"
+            icon={
+              <PersonStanding className="text-yellow-600 sm:size-[54px] min-w-[32px] min-h-[32px]" />
+            }
+          />
+          
+          <DashboardCard
+            loading={false}
+            key={"job"}
+            title={t("Seasonal Flu")}
+            description={t("job")}
+            className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+            value={600}
+            symbol="+"
+            icon={
+              <PersonStanding className="text-red-600 sm:size-[54px] min-w-[32px] min-h-[32px]" />
+            }
+          />
+          
+          <DashboardCard
+            loading={false}
+            key={"job"}
+            title={t("Travel Type")}
+            description={t("Hajj Farzi:  Hajj Omra:  Others: ")}
+            className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+            value={600}
+            symbol=" Total"
+            icon={
+              <Plane className="text-indigo-600 sm:size-[54px] min-w-[32px] min-h-[32px]" />
+            }
+          />
+        </div>
       </div>
-    </>
+
+      {/* Charts Section */}
+      <div className="container mx-auto px-4 sm:px-6 pb-10 space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+            <h3 className="text-lg font-semibold text-gray-800 mb-4">Overall Vaccination Distribution</h3>
+            <div className="h-80">
+              <PieChartOne />
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+            <h3 className="text-lg font-semibold text-gray-800 mb-4">Male and Female Distribution</h3>
+            <div className="h-80">
+              <BarChartFive />
+            </div>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+            <h3 className="text-lg font-semibold text-gray-800 mb-4">Populations Based on Vaccination Types Distribution</h3>
+            <div className="h-80">
+              <BarChartOne />
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+            <h3 className="text-lg font-semibold text-gray-800 mb-4">Gender/Vaccination Type Distribution</h3>
+            <div className="h-80">
+              <PieChartTen />
+            </div>
+          </div>
+        </div>
+        
+        <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+          <h3 className="text-lg font-semibold text-gray-800 mb-4">Destination Distribution</h3>
+          <div className="h-96">
+            <AreaChartNine />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
